@@ -11,11 +11,11 @@ export default {
   },
   created() {
     
-    (function() {
-      setInterval(() => {
-        this.currentTime();
-      }, 1000);
-    }.bind(this))();
+    // (function() {
+    //   setInterval(() => {
+    //     this.currentTime();
+    //   }, 1000);
+    // }.bind(this))();
   },
   methods: {
     currentTime() {

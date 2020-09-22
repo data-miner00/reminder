@@ -1,30 +1,20 @@
 <template>
   <div class="dashboard">
-		<header>
-			<div class="logo">Reminder</div>
-			<input type="text" name="search" id="search" v-model="search" />
-			<div class="bind-one">
-			
-			</div>
-		</header>
+		
 		<div class="container">
-			<Leftbar />
-			<div class="content">
-				<div class="center">
-					<h1 class="welcome">Welcome back {{ username }}!</h1>
-					<h3>It is {{ todayDate }}</h3>
-					<h3>My tasks...</h3>
-					<div class="results">
-						
-						<hr />
-						<div class="resultsr" v-for="task in tasks" :key="task.id">
-							<div>{{ task.title }}</div>
-							<div class="elapsed" style="color: red;">{{ task.elapsed }}</div>
-							<hr />
-						</div>
+			<h1 class="welcome">Welcome back {{ username }}!</h1>
+			<h3 class="date">{{ todayDate }}</h3>
+			<h3 class="md">My Tasks</h3>
+
+			<div class="results">
+				<div class="hr" />
+				<div class="task" v-for="task in tasks" :key="task.id">
+					<div class="inner">
+						<div>{{ task.title }}</div>
+						<div class="elapsed" style="color: red;">{{ task.elapsed }}</div>
 					</div>
+					<div class="hr" />
 				</div>
-				<Rightbar />
 			</div>
 		</div>
 		
@@ -32,8 +22,6 @@
 </template>
 
 <script>
-import Leftbar from '../components/Leftbar'
-import Rightbar from '../components/Rightbar'
 
 export default {
 	name: 'Dashboard',
@@ -46,34 +34,33 @@ export default {
 				{
 					id: 1,
 					title: 'Build software',
-					elapsed: '5 days'
+					elapsed: '5 days ago'
 				},
 				{
 					id: 2,
 					title: 'Research Plants',
-					elapsed: '4 days'
+					elapsed: '4 days ago'
 				},
 				{
 					id: 3,
 					title: 'Build Minecraft',
-					elapsed: '3 days'
+					elapsed: '3 days ago'
 				},
 				{
 					id: 4,
 					title: 'Study Quantum Physics',
-					elapsed: '2 days'
+					elapsed: '2 days ago'
 				},
 				{
 					id: 5,
 					title: 'Build Discord Bot Game',
-					elapsed: '1 minutes'
+					elapsed: '1 minutes ago'
 				},
 			]
 		};
 	},
 	components: {
-		Leftbar,
-		Rightbar,
+
 	},
 	computed: {
 		todayDate() {
@@ -108,59 +95,37 @@ export default {
 
 <style lang="sass" scoped>
 @import url('https://fonts.googleapis.com/css2?family=Questrial&display=swap')
-
-header
-	display: flex
-	flex-direction: row
-	height: 60px
-	width: 100%
-	background-color: #1B1725
-	justify-content: space-around
-	align-items: center
-
-	.logo
-		text-transform: uppercase
-		letter-spacing: 2px
-		font-size: 2em
-		color: white
-
-	#search
-		width: 30%
-		height: 35px
-
-	.bind-one
-		height: 35px
-		width: 20%
-		background-color: blue
+	
 
 .container
 
+	padding: 0 16%
 	display: flex
-  flex-wrap: wrap
+	justify-content: center
+	flex-direction: column
+	align-items: center
+
+	.welcome
+		font-family: 'Questrial', sans-serif;
+		padding: 20px
+		text-align: center
+		font-size: 2.3em
 
 
-	.content
-		background: #D0BCD5
-		width: 74%
-		display: flex
-		flex-direction: row
-		flex-wrap: wrap
+	.results
+		width: 60%
+		margin: 20px 0 0 0
 
-		.center
+.hr
+	width: 100%
+	height: 3px
+	background: black
 
-			width: 70%
-			background: green
-    
-			.welcome
-				font-family: 'Questrial', sans-serif;
-				padding: 20px
-				text-align: center
-				font-size: 2.3em
+.inner
+	padding: 20px
 
-			.results
-				width: 80%
-				height: 500px
-				background: blue
-
-
+.date
+	text-align: center
+	font-size: 24px
+	margin: 15px 0
 </style>
