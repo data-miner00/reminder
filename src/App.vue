@@ -8,25 +8,27 @@
   </div>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<style lang="sass">
 
-#nav {
-  padding: 30px;
+$color1: #1B1725
+$color2: #534B62
+$color3: #A499B3
+$color4: #D0BCD5
+$color5: #226CE0
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
+*
+  padding: 0
+  margin: 0
+  box-sizing: border-box
 
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
-}
+button
+  border: none
+  color: white
+  padding: 15px 32px
+  text-align: center
+  text-decoration: none
+  font-size: 16px
+  margin: 4px 2px
+  cursor: pointer
+  background-color: $color5
 </style>
