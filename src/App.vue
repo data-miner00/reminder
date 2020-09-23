@@ -3,20 +3,19 @@
     <!-- <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
-    </div> -->
+    </div>-->
     <Header />
-    <router-view/>
+    <router-view />
   </div>
 </template>
 
 <script>
-
-import Header from './components/Header'
+import Header from "./components/Header";
 export default {
   components: {
     Header,
-  }
-}
+  },
+};
 </script>
 
 <style lang="sass">
@@ -42,4 +41,9 @@ button
   margin: 4px 2px
   cursor: pointer
   background-color: $color5
+
+#app
+  display: flex
+  flex-direction: column
+  height: 100vh
 </style>
