@@ -1,67 +1,61 @@
 <template>
+	
   <div class="dashboard">
-		
+		<Header />
 		<div class="container">
-			<h1 class="welcome">Welcome back {{ username }}!</h1>
 			<h3 class="date">{{ todayDate }}</h3>
-			<h3 class="md">My Tasks</h3>
-
+			<div class="display-box">
+				<div class="label">My tasks</div>
+				<div class="button-group">
+					<md-button>History</md-button>
+					<md-button class="md-raised md-primary">Add Task</md-button>
+				</div>
+			</div>
+			<div class="display-box2">
+				
+				<div class="search">
+					<input type="text" class="searchTerm" placeholder="What are you looking for?">
+					<button type="submit" class="searchButton">
+						<i class="fa fa-search"></i>
+					</button>
+				</div>
+			</div>
 			<div class="results">
-				<div class="hr" />
+				<!-- <div class="hr" /> -->
 				<div class="task" v-for="task in tasks" :key="task.id">
 					<div class="inner">
 						<div>{{ task.title }}</div>
 						<div class="elapsed" style="color: red;">{{ task.elapsed }}</div>
 					</div>
-					<div class="hr" />
+					<!-- <div class="hr" /> -->
 				</div>
 			</div>
 		</div>
-		
+		<Footer />
   </div>
 </template>
 
 <script>
-
+import Header from '../components/Header'
+import Footer from '../components/Footer'
+import tasks from '../assets/dummy'
 export default {
 	name: 'Dashboard',
   data() {
 		return {
-			username: 'Arkadian',
-			selected: 'Assignment',
 			search: '',
-			tasks: [
-				{
-					id: 1,
-					title: 'Build software',
-					elapsed: '5 days ago'
-				},
-				{
-					id: 2,
-					title: 'Research Plants',
-					elapsed: '4 days ago'
-				},
-				{
-					id: 3,
-					title: 'Build Minecraft',
-					elapsed: '3 days ago'
-				},
-				{
-					id: 4,
-					title: 'Study Quantum Physics',
-					elapsed: '2 days ago'
-				},
-				{
-					id: 5,
-					title: 'Build Discord Bot Game',
-					elapsed: '1 minutes ago'
-				},
-			]
+			tasks,
 		};
 	},
 	components: {
-
+		Header,
+		Footer,
 	},
+	mounted() {
+    let fontAwesome = document.createElement('script');
+		fontAwesome.setAttribute('src', 'https://kit.fontawesome.com/047746317e.js');
+		document.head.appendChild(fontAwesome);
+  },
 	computed: {
 		todayDate() {
 			const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
@@ -99,11 +93,12 @@ export default {
 
 .container
 
-	padding: 0 16%
+	padding: 40px 16% 100px
 	display: flex
 	justify-content: center
 	flex-direction: column
 	align-items: center
+	background: #C1CFDA
 
 	.welcome
 		font-family: 'Questrial', sans-serif;
@@ -115,17 +110,62 @@ export default {
 	.results
 		width: 60%
 		margin: 20px 0 0 0
+		background: none
+
+		.task
+			background-color: none
+			border-bottom: 3px solid #534B62
+			padding: 0 0 0 15px
+			margin: 5px 0
+			color: #534B62
 
 .hr
-	width: 100%
+	width: 75%
 	height: 3px
-	background: black
+	border-radius: 5px
+	background: gray
+	margin: 0 auto
 
 .inner
-	padding: 20px
+	padding: 10px
 
 .date
 	text-align: center
-	font-size: 24px
-	margin: 15px 0
+	font-size: 28px
+	margin: 15px 0 55px
+
+
+
+.display-box
+	display: flex
+	justify-content: space-between
+	align-items: center
+	width: 600px
+	margin: 20px 0
+	background: rgba(0,0,0,0.2)
+
+	.label
+		padding: 0 0 0 8px
+		font-size: 24px
+
+
+.search
+	.searchTerm
+		width: 350px
+		height: 35px
+		border: 3px solid #00B4CC
+		padding-left: 8px
+		border-radius: 10px 0 0 10px
+		outline: none
+		&:focus
+			color: #00B4CC;
+	.searchButton
+		height: 35px
+		width: 55px
+		padding-right: 5px
+		background: #00B4CC
+		border: none
+		cursor: pointer
+		border-radius: 0 10px 10px 0
+		color: white
 </style>

@@ -4,17 +4,13 @@
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
     </div>-->
-    <Header />
     <router-view />
   </div>
 </template>
 
 <script>
-import Header from "./components/Header";
 export default {
-  components: {
-    Header,
-  },
+
 };
 </script>
 
@@ -31,16 +27,16 @@ $color5: #226CE0
   margin: 0
   box-sizing: border-box
 
-button
-  border: none
-  color: white
-  padding: 15px 32px
-  text-align: center
-  text-decoration: none
-  font-size: 16px
-  margin: 4px 2px
-  cursor: pointer
-  background-color: $color5
+// button
+//   border: none
+//   color: white
+//   padding: 15px 32px
+//   text-align: center
+//   text-decoration: none
+//   font-size: 16px
+//   margin: 4px 2px
+//   cursor: pointer
+//   background-color: $color5
 
 #app
   display: flex
