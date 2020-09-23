@@ -4,19 +4,9 @@
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
     </div>-->
-    <Header />
     <router-view />
   </div>
 </template>
-
-<script>
-import Header from "./components/Header";
-export default {
-  components: {
-    Header,
-  },
-};
-</script>
 
 <style lang="sass">
 
@@ -44,6 +34,7 @@ button
 
 #app
   display: flex
+  flex: 1
   flex-direction: column
   height: 100vh
 </style>
