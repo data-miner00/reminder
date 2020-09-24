@@ -105,8 +105,7 @@ export default {
 	
 
 .container
-  margin-top: 60px
-  padding: 40px 16% 100px
+  padding: 100px 16% 100px
   display: flex
   justify-content: center
   flex-direction: column
