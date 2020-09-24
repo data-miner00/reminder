@@ -9,9 +9,7 @@
 </template>
 
 <script>
-export default {
-
-};
+export default {};
 </script>
 
 <style lang="sass">
@@ -40,6 +38,7 @@ $color5: #226CE0
 
 #app
   display: flex
+  flex: 1
   flex-direction: column
   height: 100vh
 </style>
