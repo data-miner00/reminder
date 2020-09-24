@@ -23,7 +23,7 @@
         <span class="md-body-1 md-layout-item md-small-hide">{{
           username
         }}</span>
-        <md-button to="login" class="md-body-1 logout">Logout</md-button>
+        <md-button to="/" class="md-body-1 logout">Logout</md-button>
       </div>
     </div>
     <div

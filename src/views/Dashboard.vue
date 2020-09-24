@@ -30,6 +30,7 @@
           </div>
         </div>
         <div class="results">
+          <div class="border-top" />
           <div class="task" v-for="task in tasks" :key="task.id">
             <div class="inner">
               <div>{{ task.title }}</div>
@@ -149,6 +150,12 @@ export default {
   background: none;
 }
 
+.border-top {
+  height: 2px;
+  background: #534b62;
+  width: 100%;
+}
+
 .searchTerm {
   width: 400px;
   height: 40px;
@@ -188,6 +195,6 @@ export default {
   font-size: 16px;
   outline-color: #f9e4ff;
   color: #000;
-  background-color: #bdf3fa;
+  background-color: rgb(248, 205, 246);
 }
 </style>
