@@ -1,15 +1,14 @@
 <template>
   <footer>
-      <div class="word">
-          Made with <span title="love">❤</span> &copy; 2020 Weiyan Holdings
-      </div>
+    <div class="word">
+      Made with
+      <span title="love" class="love">❤</span> &copy; 2020 Weiyan Holdings
+    </div>
   </footer>
 </template>
 
 <script>
-export default {
-
-}
+export default {};
 </script>
 
 <style lang="sass" scoped>
@@ -27,5 +26,8 @@ footer
         font-size: 15px
         font-family: 'Poppins', cursive
         color: white
+
+        .love
+            color: red
 
 </style>
