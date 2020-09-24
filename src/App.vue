@@ -8,6 +8,10 @@
   </div>
 </template>
 
+<script>
+export default {};
+</script>
+
 <style lang="sass">
 
 $color1: #1B1725
@@ -21,16 +25,16 @@ $color5: #226CE0
   margin: 0
   box-sizing: border-box
 
-button
-  border: none
-  color: white
-  padding: 15px 32px
-  text-align: center
-  text-decoration: none
-  font-size: 16px
-  margin: 4px 2px
-  cursor: pointer
-  background-color: $color5
+// button
+//   border: none
+//   color: white
+//   padding: 15px 32px
+//   text-align: center
+//   text-decoration: none
+//   font-size: 16px
+//   margin: 4px 2px
+//   cursor: pointer
+//   background-color: $color5
 
 #app
   display: flex
