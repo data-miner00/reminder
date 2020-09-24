@@ -105,80 +105,79 @@ export default {
 	
 
 .container
+  padding: 100px 16% 100px
+  display: flex
+  justify-content: center
+  flex-direction: column
+  align-items: center
+  background: #C1CFDA
 
-	padding: 40px 16% 100px
-	display: flex
-	justify-content: center
-	flex-direction: column
-	align-items: center
-	background: #C1CFDA
-
-	.welcome
-		font-family: 'Questrial', sans-serif;
-		padding: 20px
-		text-align: center
-		font-size: 2.3em
+  .welcome
+    font-family: 'Questrial', sans-serif;
+    padding: 20px
+    text-align: center
+    font-size: 2.3em
 
 
-	.results
-		width: 60%
-		margin: 20px 0 0 0
-		background: none
+  .results
+    width: 60%
+    margin: 20px 0 0 0
+    background: none
 
-		.task
-			background-color: none
-			border-bottom: 3px solid #534B62
-			padding: 0 0 0 15px
-			margin: 5px 0
-			color: #534B62
+    .task
+      background-color: none
+      border-bottom: 3px solid #534B62
+      padding: 0 0 0 15px
+      margin: 5px 0
+      color: #534B62
 
 .hr
-	width: 75%
-	height: 3px
-	border-radius: 5px
-	background: gray
-	margin: 0 auto
+  width: 75%
+  height: 3px
+  border-radius: 5px
+  background: gray
+  margin: 0 auto
 
 .inner
-	padding: 10px
+  padding: 10px
 
 .date
-	text-align: center
-	font-size: 28px
-	margin: 15px 0 55px
+  text-align: center
+  font-size: 28px
+  margin: 15px 0 55px
 
 
 
 .display-box
-	display: flex
-	justify-content: space-between
-	align-items: center
-	width: 600px
-	margin: 20px 0
-	background: rgba(0,0,0,0.2)
+  display: flex
+  justify-content: space-between
+  align-items: center
+  width: 600px
+  margin: 20px 0
+  background: rgba(0,0,0,0.2)
 
-	.label
-		padding: 0 0 0 8px
-		font-size: 24px
+  .label
+    padding: 0 0 0 8px
+    font-size: 24px
 
 
 .search
-	.searchTerm
-		width: 350px
-		height: 35px
-		border: 3px solid #00B4CC
-		padding-left: 8px
-		border-radius: 10px 0 0 10px
-		outline: none
-		&:focus
-			color: #00B4CC;
-	.searchButton
-		height: 35px
-		width: 55px
-		padding-right: 5px
-		background: #00B4CC
-		border: none
-		cursor: pointer
-		border-radius: 0 10px 10px 0
-		color: white
+  .searchTerm
+    width: 350px
+    height: 35px
+    border: 3px solid #00B4CC
+    padding-left: 8px
+    border-radius: 10px 0 0 10px
+    outline: none
+    &:focus
+      color: #00B4CC;
+  .searchButton
+    height: 35px
+    width: 55px
+    padding-right: 5px
+    background: #00B4CC
+    border: none
+    cursor: pointer
+    border-radius: 0 10px 10px 0
+    color: white
 </style>
