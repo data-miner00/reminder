@@ -2,30 +2,46 @@
   <div class="dashboard">
     <Header />
     <div class="container">
-      <h3 class="date">{{ todayDate }}</h3>
-      <div class="display-box">
-        <div class="label">My tasks</div>
-        <div class="button-group">
-          <md-button>History</md-button>
-          <md-button class="md-raised md-primary">Add Task</md-button>
-        </div>
-      </div>
-      <div class="display-box2">
-        <div class="search">
-          <input type="text" class="searchTerm" placeholder="What are you looking for?" />
-          <button type="submit" class="searchButton">
-            <i class="fa fa-search"></i>
-          </button>
-        </div>
-      </div>
-      <div class="results">
-        <!-- <div class="hr" /> -->
-        <div class="task" v-for="task in tasks" :key="task.id">
-          <div class="inner">
-            <div>{{ task.title }}</div>
-            <div class="elapsed" style="color: red;">{{ task.elapsed }}</div>
+      <div class="content">
+        <div class="display-box">
+          <div class="label">My tasks</div>
+          <div class="button-group">
+            <md-button>History</md-button>
+            <md-button class="md-raised md-primary">Add Task</md-button>
           </div>
-          <!-- <div class="hr" /> -->
+        </div>
+        <div class="display-box2">
+          <select name="category" id="category">
+            <option value="all" selected>All</option>
+            <option value="todos" selected>Todos</option>
+            <option value="mustdos" selected>Mustdos</option>
+            <option value="assignments" selected>Assignments</option>
+            <option value="projects" selected>Projects</option>
+          </select>
+          <div class="search">
+            <input
+              type="text"
+              class="searchTerm"
+              placeholder="What are you looking for?"
+            />
+            <button type="submit" class="searchButton" title="Search">
+              <i class="fa fa-search"></i>
+            </button>
+          </div>
+        </div>
+        <div class="results">
+          <div class="task" v-for="task in tasks" :key="task.id">
+            <div class="inner">
+              <div>{{ task.title }}</div>
+              <div
+                class="elapsed"
+                :style="task.fast ? 'color: crimson;' : 'color: green'"
+              >
+                {{ task.elapsed }}&nbsp;&nbsp;
+                <span class="created">4th June</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -57,40 +73,7 @@ export default {
     );
     document.head.appendChild(fontAwesome);
   },
-  computed: {
-    todayDate() {
-      const MONTHS = [
-        "January",
-        "February",
-        "March",
-        "April",
-        "May",
-        "June",
-        "July",
-        "August",
-        "September",
-        "October",
-        "November",
-        "December",
-      ];
-      var today = new Date();
-      var dd = String(today.getDate()).padStart(2, "0");
-
-      var ordinal;
-      if (dd === "01" || dd === "11" || dd === "21" || dd === "31")
-        ordinal = "st";
-      else if (dd === "02" || dd === "12" || dd === "22") ordinal = "nd";
-      else if (dd === "03" || dd === "13" || dd === "23") ordinal = "rd";
-      else ordinal = "th";
-
-      var mm = MONTHS[today.getMonth()]; //January is 0!
-      var yyyy = today.getFullYear();
-
-      today = dd + ordinal + " " + mm + ", " + yyyy;
-
-      return today;
-    },
-  },
+  computed: {},
   methods: {
     setSearch(e) {
       this.search = e.target.value;
@@ -100,84 +83,108 @@ export default {
 };
 </script>
 
-<style lang="sass" scoped>
-@import url('https://fonts.googleapis.com/css2?family=Questrial&display=swap')
-	
+<style scoped>
+@import url("https://fonts.googleapis.com/css2?family=Questrial&display=swap");
 
-.container
-  padding: 100px 16% 100px
-  display: flex
-  justify-content: center
-  flex-direction: column
-  align-items: center
-  background: #C1CFDA
+.container {
+  padding: 100px 16%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  background: rgb(255, 234, 254);
+}
 
-  .welcome
-    font-family: 'Questrial', sans-serif;
-    padding: 20px
-    text-align: center
-    font-size: 2.3em
+.content {
+  width: 60%;
+}
 
+.results {
+  margin: 20px 0 0 0;
+  background: #f9e4ff;
+  padding: 20px;
+  border-radius: 8px;
+}
 
-  .results
-    width: 60%
-    margin: 20px 0 0 0
-    background: none
+.task {
+  background-color: none;
+  border-bottom: 3px solid #534b62;
+  padding: 0 0 0 15px;
+  margin: 5px 0;
+  color: #534b62;
+}
+.created {
+  font-size: 8px;
+  color: gray;
+}
 
-    .task
-      background-color: none
-      border-bottom: 3px solid #534B62
-      padding: 0 0 0 15px
-      margin: 5px 0
-      color: #534B62
+.inner {
+  padding: 10px;
+}
 
-.hr
-  width: 75%
-  height: 3px
-  border-radius: 5px
-  background: gray
-  margin: 0 auto
+.display-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 0;
+  background: rgb(248, 205, 246);
+  border-radius: 3px;
+}
 
-.inner
-  padding: 10px
+.display-box2 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.label {
+  padding: 0 0 0 8px;
+  font-size: 24px;
+}
 
-.date
-  text-align: center
-  font-size: 28px
-  margin: 15px 0 55px
+.search {
+  background: none;
+}
 
+.searchTerm {
+  width: 400px;
+  height: 40px;
+  border: 3px solid #00b4cc;
+  padding-left: 8px;
+  border-radius: 10px 0 0 10px;
+  outline: none;
+  background-color: #bdf3fa;
+  color: white;
+}
+.searchTerm::placeholder {
+  color: #00b4cc;
+}
+.searchTerm:focus {
+  color: #00b4cc;
+}
 
+.searchButton {
+  height: 40px;
+  width: 55px;
+  padding-right: 5px;
+  background: #00b4cc;
+  border: none;
+  cursor: pointer;
+  border-radius: 0 10px 10px 0;
+  color: white;
+  transition: background-color 0.4s ease;
+}
+.searchButton:hover {
+  background: rgba(0, 180, 204, 0.7);
+}
 
-.display-box
-  display: flex
-  justify-content: space-between
-  align-items: center
-  width: 600px
-  margin: 20px 0
-  background: rgba(0,0,0,0.2)
-
-  .label
-    padding: 0 0 0 8px
-    font-size: 24px
-
-
-.search
-  .searchTerm
-    width: 350px
-    height: 35px
-    border: 3px solid #00B4CC
-    padding-left: 8px
-    border-radius: 10px 0 0 10px
-    outline: none
-    &:focus
-      color: #00B4CC;
-  .searchButton
-    height: 35px
-    width: 55px
-    padding-right: 5px
-    background: #00B4CC
-    border: none
-    cursor: pointer
-    border-radius: 0 10px 10px 0
-    color: white
+#category {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 3px;
+  font-size: 16px;
+  outline-color: #f9e4ff;
+  color: #000;
+  background-color: #bdf3fa;
+}
 </style>

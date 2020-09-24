@@ -6,36 +6,21 @@
 export default {
   data() {
     return {
-      time: new Date(),
+      time: new Date().toLocaleTimeString('en-US'),
     };
   },
   created() {
     
-    // (function() {
-    //   setInterval(() => {
-    //     this.currentTime();
-    //   }, 1000);
-    // }.bind(this))();
+    (function() {
+      setInterval(() => {
+        this.time = this.currentTime();
+      }, 1000);
+    }.bind(this))();
   },
   methods: {
     currentTime() {
-      var date = new Date(); /* creating object of Date class */
-      var hour = date.getHours();
-      var min = date.getMinutes();
-      var sec = date.getSeconds();
-      hour = this.updateTime(hour);
-      min = this.updateTime(min);
-      sec = this.updateTime(sec);
-      this.time = hour + " : " + min + " : " + sec; /* adding time to the div */
+      return new Date().toLocaleTimeString('en-US');
     },
-    updateTime(k) {
-      if (k < 10) {
-        return "0" + k;
-      }
-      else {
-        return k;
-      }
-    }
   }
 }
 </script>
@@ -47,9 +32,8 @@ export default {
 #clock {
   font-family: 'Orbitron', sans-serif;
   color: #66ff99;
-  font-size: 56px;
+  font-size: 26px;
   text-align: center;
-  padding-top: 40px;
-  padding-bottom: 40px;
+  width: 180px;
 }
 </style>

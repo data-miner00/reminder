@@ -17,11 +17,11 @@ export default {};
 footer
     height: 60px
     width: 100%
-    background: black
+    background: #e090d8
     display: flex
     justify-content: center
     align-items: center
-    
+
     .word
         font-size: 15px
         font-family: 'Poppins', cursive
@@ -29,5 +29,4 @@ footer
 
         .love
             color: red
-
 </style>
