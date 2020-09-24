@@ -4,7 +4,7 @@
     <div class="container">
       <div class="content">
         <div class="display-box">
-          <div class="label">My tasks</div>
+          <div class="label">My Tasks <span class="count">(9)</span></div>
           <div class="button-group">
             <md-button>History</md-button>
             <md-button class="md-raised md-primary">Add Task</md-button>
@@ -117,7 +117,10 @@ export default {
   font-size: 8px;
   color: gray;
 }
-
+.count {
+  font-size: 16px;
+  color: gray;
+}
 .inner {
   padding: 10px;
 }
